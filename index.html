@@ -5,10 +5,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <title>Fest Track</title>
 </head>
 
 <body>
+
+    <header id="showcase">
+        <div class="ui stakable secondary menu" id="menu">
+            <div class="ui container">
+                <div class="menu right">
+                    <div class="item">
+                        <a href="#" class="item">Home</a>
+                        <a href="#" class="item">About</a>
+                        <a href="#" class="item">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui container">
+            <div class="ui two column grid padded">
+                <div class="row hom-txt">
+                    <div class="column">
+                        <h1>The best choice for <b class="ui purple header">festival tracking</b></h1>
+                    </div>
+                    <div class="column">
+                        <div class="ui fluid action input">
+                            <input type="text" placeholder="Search for a concert by city...">
+                            <div class="ui button" id="search-btn">Search</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="ui container">
+        <div>
+            <h1 class="ui center aligned header" style="margin-top:50px;">Explore the World of Concerts</h1>
+        </div>
+        <div class="ui three column grid">
+            <div class="row" style="margin-top:50px;">
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui center aligned icon header">
+                            <i class="purple calendar outline icon"></i>
+                            <h4 class="ui header">Unlimited Concerts</h4>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui center aligned icon header">
+                            <i class="purple calendar outline icon"></i>
+                            <h4 class="ui header">Unlimited Concerts</h4>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui center aligned icon header">
+                            <i class="purple calendar outline icon"></i>
+                            <h4 class="ui header">Unlimited Concerts</h4>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:50px;">
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui center aligned icon header">
+                            <i class="purple calendar outline icon"></i>
+                            <h4 class="ui header">Unlimited Concerts</h4>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui center aligned icon header">
+                            <i class="purple calendar outline icon"></i>
+                            <h4 class="ui header">Unlimited Concerts</h4>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui center aligned icon header">
+                            <i class="purple calendar outline icon"></i>
+                            <h4 class="ui header">Unlimited Concerts</h4>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="ui stackable grid">
+            <div class="two column row">
+                <div class="column">
+                    <img src="assets/images/img1.jpg" alt="" class="image fluid">
+                    <p class="img-txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae voluptates temporibus neque quam ab mollitia.</p>
+                </div>
+                <div class="column">
+                    <img src="assets/images/img2.jpg" alt="" class="image fluid">
+                    <p class="img-txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae voluptates temporibus neque quam ab mollitia.</p>
+                </div>
+            </div>
+            <div class="four column row">
+                <div class="column">
+                    <img src="assets/images/img1.jpg" alt="" class="image fluid">
+                    <p class="img-txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+                <div class="column">
+                    <img src="assets/images/img3.jpg" alt="" class="image fluid">
+                    <p class="img-txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+                <div class="column">
+                    <img src="assets/images/img4.jpg" alt="" class="image fluid">
+                    <p class="img-txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+                <div class="column">
+                    <img src="assets/images/img5.jpg" alt="" class="image fluid">
+                    <p class="img-txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="container">
+            <div class="row">
+                <div class="column1">
+                    <p id="demo">Your current position...</p>
+                </div>
+                <div class="column2">
+                    <div id="ip"></div>
+                    <div id="city"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="ui inverted vertical footer segment">
+        <div class="ui center aligned container">
+            <div class="ui stackable inverted divided grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Group 1</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Link One</a>
+                        <a href="#" class="item">Link Two</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Group 2</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Link One</a>
+                        <a href="#" class="item">Link Two</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Group 3</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Link One</a>
+                        <a href="#" class="item">Link Two</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">Footer Header</h4>
+                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <img src="assets/images/lion.jpeg" class="ui centered mini image">
+            <div class="ui horizontal inverted small divided link list">
+                <a class="item" href="#">Site Map</a>
+                <a class="item" href="#">Contact Us</a>
+                <a class="item" href="#">Terms and Conditions</a>
+                <a class="item" href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 

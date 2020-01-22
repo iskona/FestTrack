@@ -1,0 +1,19 @@
+a.item {
+    color: #a333c8 !important;
+}
+
+#showcase {
+    background-image: url("../images/party.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    height: 100vh;
+}
+
+#menu {
+    height: 60px;
+    background: rgba(0, 3, 39, 0.39);
+    box-shadow: 0px 15px 10px -15px #111;
+}
