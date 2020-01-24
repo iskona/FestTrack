@@ -1,17 +1,30 @@
-let LAT = "47.7510741";
-let LONG = "-120.7401386";
+let key = "SY7qj7qCDs1AFqjNz5S9XQrrz1n5jltR";
+let cityArr = JSON.parse(localStorage.getItem("cityInput")) || [];
 let demo = $("#demo");
-let key = "AIzaSyC6MtckH7w6qRSjIHTjkqjavuJmOdRKAuo";
 const fourColumn = $("#four-column");
 const currentRow = $("#current-row");
 const search = $("#search-btn");
+
+// Render data from localStorage
+function putOnPage(array) {
+
+    $("#city-store").empty();
+    array = JSON.parse(localStorage.getItem("cityInput")) || [];
+    for (let i = 0; i < array.length; i++) {
+        let newSegment = $("<div class='ui segment city-select'>").attr("id", array[i]);
+        let newPtag = $("<p>").text(array[i]);
+        newSegment.append(newPtag);
+        $("#city-store").prepend(newSegment);
+    };
+    // console.log(array);
+};
 
 
 // AJAX CALL FOR CURRENT LOCATION
 function getCurrentData(city) {
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=SY7qj7qCDs1AFqjNz5S9XQrrz1n5jltR&sort=date,name,asc&city=" + city + "&classificationName=music",
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + key + "&sort=date,name,asc&city=" + city + "&classificationName=music",
         async: true,
         dataType: "json",
         success: function (json) {
@@ -44,7 +57,7 @@ function getCurrentData(city) {
 function getUserData() {
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&size=4&city=Portland&apikey=SY7qj7qCDs1AFqjNz5S9XQrrz1n5jltR",
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&size=4&city=Portland&apikey=" + key,
         async: true,
         dataType: "json",
         success: function (json) {
@@ -70,6 +83,7 @@ function getUserData() {
 document.addEventListener('DOMContentLoaded', function () {
 
     getUserData();
+    putOnPage(cityArr);
 
     $.get("https://api.ipdata.co?api-key=test", function (response) {
         $("#ip").html("IP: " + response.ip);
@@ -81,5 +95,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const citySearch = $("#input-field").val().trim();
         $("#input-field").val("");
         console.log(citySearch);
+        let presented = cityArr.includes(citySearch);
+        if (!presented) {
+            cityArr.push(citySearch);
+        }
+        localStorage.setItem("cityInput", JSON.stringify(cityArr));
+        putOnPage(cityArr);
     })
 }, false);
