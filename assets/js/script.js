@@ -27,7 +27,7 @@ function putOnPage(array) {
 function getCurrentData(city) {
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + key + "&sort=date,name,asc&city=" + city + "&classificationName=music",
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + key + "&sort=date,name,asc&city=" + city + "&classificationName=music&size=8",
         async: true,
         dataType: "json",
         success: function (json) {
@@ -36,18 +36,19 @@ function getCurrentData(city) {
             eventsList.forEach(function (elem) {
                 console.log(elem);
 
-                let newColumn = $("<div>").attr("class", "column");
-                let outerDiv = $("<div>").attr("class", "ui segment").attr("style", "height:300px");
-                let innerDiv = $("<div>").attr("class", "ui center aligned icon header");
-                let newI = $("<i>").attr("class", "purple calendar outline icon");
-                let newH4 = $("<h4>").attr("class", "ui header").text(elem.name);
-                let newH6 = $("<h6>").text(elem.dates.start.localDate);
-                let cityTag = $("<h6>").text(elem._embedded.venues[0].name + ", " + elem._embedded.venues[0].city.name)
-                let br = $("<br>");
-                innerDiv.append(newI, newH4, newH6, cityTag);
-                outerDiv.append(innerDiv);
-                newColumn.append(outerDiv, br);
-                currentRow.append(newColumn);
+                let outerDiv = $("<div>").attr("class", "ui segment");
+                let image = $("<img class='ui medium left floated image'>").attr("src", elem.images[2].url);
+                let title = $("<h4>").text(elem.name).attr("style", "color:#4183c4");
+                let genre = $("<p>").text("Genre: " + elem.classifications[0].genre.name);
+                let date = $("<p>").text(elem.dates.start.localDate);
+                let venue = $("<p>").text(elem._embedded.venues[0].name);
+                let address = $("<p>").text(elem._embedded.venues[0].address.line1 + ", " + elem._embedded.venues[0].city.name);
+                let aTag = $("<a>").attr("href", elem.url);
+                let button = $("<button class='fluid ui purple button' type='submit'>").text("Get Info or Buy Tickets!");
+                aTag.append(button);
+                outerDiv.append(image, title, genre, date, venue, address, aTag);
+                currentRow.append(outerDiv);
+
             });
         },
         error: function (xhr, status, err) {
@@ -63,7 +64,7 @@ function getUserData(cityName) {
 
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&sort=date,name,asc&size=20&city=" + cityName + "&apikey=" + key,
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&sort=date,name,asc&size=32&city=" + cityName + "&apikey=" + key,
         async: true,
         dataType: "json",
         success: function (json) {
