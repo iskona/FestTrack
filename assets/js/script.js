@@ -1,6 +1,5 @@
 let key = "SY7qj7qCDs1AFqjNz5S9XQrrz1n5jltR";
 let cityArr = JSON.parse(localStorage.getItem("cityInput")) || [];
-let demo = $("#demo");
 const fourColumn = $("#four-column");
 const currentRow = $("#current-row");
 const search = $("#search-btn");
@@ -34,9 +33,9 @@ function getCurrentData(city) {
             console.log(json._embedded.events);
             let eventsList = json._embedded.events;
             eventsList.forEach(function (elem) {
-                console.log(elem);
+                // console.log(elem);
 
-                let outerDiv = $("<div>").attr("class", "ui segment");
+                let outerDiv = $("<div>").attr("class", "ui segment target-event");
                 let image = $("<img class='ui medium left floated image'>").attr("src", elem.images[2].url);
                 let title = $("<h4>").text(elem.name).attr("style", "color:#4183c4");
                 let genre = $("<p>").text("Genre: " + elem.classifications[0].genre.name);
@@ -71,15 +70,17 @@ function getUserData(cityName) {
             console.log(json._embedded.events);
             let eventsList = json._embedded.events;
             eventsList.forEach(function (elem) {
-                console.log(elem);
+                // console.log(elem);
                 let br = $("<br>");
+                
                 let newColumn = $("<div>").attr("class", "column");
+                let aTag = $("<a>").attr("href", "https://iskona.github.io/FestTrack/Details.html?id=" + elem.id);
                 let newImg = $("<img>").attr("class", "ui large image").attr("src", elem.images[2].url);
-                let nameAtag = $("<a>").text(elem.name).attr("href", elem.url).attr("style", "color:white");
+                let nameAtag = $("<a>").text(elem.name).attr("href", "/Details.html?id="+elem.id).attr("style", "color:white");
                 let datePtag = $("<p>").text(elem.dates.start.localDate).attr("style", "color:white");
                 let cityPtag = $("<p>").text(elem._embedded.venues[0].city.name).attr("style", "color:white");
                 
-                newColumn.append(newImg, nameAtag, datePtag, cityPtag, br, br);
+                newColumn.append(aTag, newImg, nameAtag, datePtag, cityPtag, br, br);
                 fourColumn.append(newColumn);
             });
         },
@@ -95,8 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
     putOnPage(cityArr);
 
     $.get("https://api.ipdata.co?api-key=test", function (response) {
-        $("#ip").html("IP: " + response.ip);
-        $("#city").html(response.city + ", " + response.region);
         getCurrentData(response.city);
     }, "jsonp");
 
