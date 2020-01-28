@@ -14,79 +14,51 @@
 
 <body>
 
-    <header id="showcase">
+    <header id="showcase" class="contact-page">
         <div class="ui stakable secondary menu" id="menu">
             <div class="ui container">
                 <div class="menu right">
                     <div class="item">
-                        <a href="#" class="item">Home</a>
+                        <a href="index.html" class="item">Home</a>
                         <a href="https://github.com/iskona/FestTrack" class="item">About</a>
-                        <a href="contact.html" class="item">Contact</a>
+                        <a href="#" class="item">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="ui container">
-            <div class="ui two column grid padded">
-                <div class="row hom-txt">
-                    <div class="column">
-                        <h1>The best choice for <b class="ui purple header">festival tracking</b></h1>
+            <section id="contact" class="sc-section">
+                <div class="ui center aligned two column stackable grid container">
+                    <div class="center aligned eight wide column">
+                        <h2>The best choice for <b class="ui purple header">festival tracking</b></h2>
                     </div>
-                    <div class="column">
-                        <div class="ui fluid action input">
-                            <input id="input-field" type="text" placeholder="City">
-                            <div class="ui button" id="search-btn">Search</div>
+                    <div class="row">
+                        <div class="column">
+                            <form class="ui form">
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <input type="text" placeholder="Name">
+                                        <i class="user icon"></i>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui left icon input">
+                                        <input type="email" placeholder="Email">
+                                        <i class="envelope icon"></i>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <textarea rows="2" placeholder="Message"></textarea>
+                                </div>
+                                <div class="ui purple button sc-button">SEND</div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </header>
-
-    <div class="ui container" id="container">
-
-        <div>
-            <h1 class="ui center aligned header" style="margin-top:30px;">Your Recent Searches</h1>
-        </div>
-
-        <div class="ui three column grid">
-            <div class="row" style="margin-top:50px;" id="city-store">
-            </div>
-        </div>
-
-        <br>
-        <br>
-        <div class="ui stackable grid">
-            <div class="four column row" id="four-column">
-            </div>
-        </div>
-        <br>
-        <br>
-
-        <div>
-            <h1 class="ui center aligned header" style="margin-top:50px;">Explore the World of Concerts around You</h1>
-        </div>
-        <br>
-        <br>
-
-        <div class="ui segments" id="current-row">
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="column1">
-                    <p id="demo">Your current position:</p>
-                </div>
-                <div class="column2">
-                    <div id="ip"></div>
-                    <div id="city"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
 
     <div class="ui inverted vertical footer segment">
         <div class="ui center aligned container">
@@ -128,7 +100,7 @@
             <img src="assets/images/lion.jpeg" class="ui centered mini image">
             <div class="ui horizontal inverted small divided link list">
                 <a class="item" href="https://github.com/iskona/FestTrack">Group-6 Project</a>
-                <a class="item" href="#">Contact Us</a>
+                <a class="item" href="index.html">Home</a>
             </div>
         </div>
     </div>
