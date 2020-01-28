@@ -2,6 +2,11 @@ a.item {
     color: #a333c8 !important;
 }
 
+div.menu.right div.item a.item {
+    background-color: azure;
+    font-weight: bolder;
+}
+
 #showcase {
     background-image: url("../images/party.jpg");
     background-size: cover;
@@ -9,7 +14,7 @@ a.item {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #333;
-    height: 100vh;
+    height: 75vh;
 }
 
 #menu {
@@ -20,6 +25,10 @@ a.item {
 
 #four-column {
     background-color: #353c42;
+}
+
+.searched {
+    cursor: pointer;
 }
 
 .searched:hover {
