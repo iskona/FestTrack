@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Content details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    
+<body>
+    <div class="container">
+        <div>
+            <img id="picture" src="image.jpg">
+        </div>
+        <div id="event_details">
+            <h2 id="fest_name">Festival Name</h2>
+            <ul id="details_list">
+                <li id="event_date">Date : </li><br>
+                <li id="event_adress">Adress : </li><br>
+                <li id="event_price">Price : </li><br>
+                <li id="event_genre">Genre : </li><br>
+                <li id="event_placement">Indoor/Outdoor : </li>
+            </ul>
+            <div class="wheater_container">
+                <div id="wheater_container_grid">
+                    <h4 id="wheater_date">10/10/10</h4>
+                    <img id="wheater_imag" src="#">
+                    <div id="temp"> Temp: 
+                        <span id="temp_data">
+                        </span><br>
+                    </div>
+                    <div id="humidity">
+                        <span id="humidity_data">Humidity </span>
+                    </div>
+                </div>
+              
+            </div>
+        
+        </div>
+        <div id="particular_details">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate possimus minima veniam quisquam facilis doloribus beatae accusantium laboriosam fuga laudantium vel aut excepturi, ad, atque dolorum eum? Nostrum, dignissimos quidem.
+        </div>  
+    <div id='restaurant_area_grid'>
+        <!-- <div class="restaurants_grid"> -->
+            <div id="restaurants_container">
+                <img id='restaurant_img' src="image.jpg">
+                <h3 id="restaurant_name">Restaurant Name</h3>
+                <div id="restaurant_data_grid">
+                    <h5 id="restaurant_adress">Adress : </h5>
+                    <div id="restaurant_cuisine">Cuisine : </div>
+                        <span id="restaurant_cuisine_type"></span>
+                    <div id="restaurant_price">Price : </div>
+                        <span id="restaurant_price_range"></span>
+                    <div id="restaurant_work_hours">Hours : </div>
+                        <span id="restaurant_working_days"></span>
+                    <div id="restaurant_distance">
+                        <span id="redstaurant_distance_from_event"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="restaurants_container">
+                <img id='restaurant_img' src="image.jpg">
+                <h3 id="restaurant_name">Restaurant Name</h3>
+                <div id="restaurant_data_grid">
+                    <h5 id="restaurant_adress">Adress : </h5>
+                    <div id="restaurant_cuisine">Cuisine : </div>
+                        <span id="restaurant_cuisine_type"></span>
+                    <div id="restaurant_price">Price : </div>
+                        <span id="restaurant_price_range"></span>
+                    <div id="restaurant_work_hours">Hours : </div>
+                        <span id="restaurant_working_days"></span>
+                    <div id="restaurant_distance">
+                        <span id="redstaurant_distance_from_event"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="restaurants_container">
+                <img id='restaurant_img' src="image.jpg">
+                <h3 id="restaurant_name">Restaurant Name</h3>
+                <div id="restaurant_data_grid">
+                    <h5 id="restaurant_adress">Adress : </h5>
+                    <div id="restaurant_cuisine">Cuisine : </div>
+                        <span id="restaurant_cuisine_type"></span>
+                    <div id="restaurant_price">Price : </div>
+                        <span id="restaurant_price_range"></span>
+                    <div id="restaurant_work_hours">Hours : </div>
+                        <span id="restaurant_working_days"></span>
+                    <div id="restaurant_distance">
+                        <span id="redstaurant_distance_from_event"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="restaurants_container">
+                <img id='restaurant_img' src="image.jpg">
+                <h3 id="restaurant_name">Restaurant Name</h3>
+                <div id="restaurant_data_grid">
+                    <h5 id="restaurant_adress">Adress : </h5>
+                    <div id="restaurant_cuisine">Cuisine : </div>
+                        <span id="restaurant_cuisine_type"></span>
+                    <div id="restaurant_price">Price : </div>
+                        <span id="restaurant_price_range"></span>
+                    <div id="restaurant_work_hours">Hours : </div>
+                        <span id="restaurant_working_days"></span>
+                    <div id="restaurant_distance">
+                        <span id="redstaurant_distance_from_event"></span>
+                    </div>
+                </div>
+            </div>
+
+        <!-- </div> -->
+        
+       
+
+    </div>
+        
+        <button id="buy_ticket">Click ME!!!!!</button>
+        
+    </div>
+    <script>
+        $.ajax({
+  type:"GET",
+  url:"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&size=20&city=Seattle&apikey=SY7qj7qCDs1AFqjNz5S9XQrrz1n5jltR",
+  async:true,
+  dataType: "json",
+  success: function(json) {
+              console.log(json);
+              // Parse the response.
+              // Do other things.
+           },
+  error: function(xhr, status, err) {
+              // This time, we do not end up here!
+           }
+});
+
+    </script>
+    
+</body>
+</html>
