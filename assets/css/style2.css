@@ -1,9 +1,12 @@
+li{
+    padding: 15px;
+}
 a.item {
     color: #a333c8 !important;
 }
 
 #showcase {
-    background-image: url("../images/party.jpg");
+    /* background-image: url("../images/party.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,4 +22,24 @@ a.item {
 }
 .ui.segment{
     cursor: pointer;
+}
+
+h1{
+    text-align: center;
+}
+.ui.card{
+    float: right;
+}
+#cubeContain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#topDiv{
+    margin: 10px;
+}
+#extraDetails{
+    margin: 10px 20px;
 }
