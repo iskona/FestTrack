@@ -18,9 +18,7 @@ function putOnPage(array) {
         newColumn.append(newSegment, br);
         $("#city-store").prepend(newColumn);
     };
-    // console.log(array);
 };
-
 
 // AJAX CALL FOR CURRENT LOCATION
 function getCurrentData(city) {
@@ -35,17 +33,15 @@ function getCurrentData(city) {
             eventsList.forEach(function (elem) {
                 // console.log(elem);
 
-                let outerDiv = $("<div>").attr("class", "ui segment target-event");
+                let outerDiv = $("<div>").attr("class", "ui segment target-event").attr("id", elem.id);
                 let image = $("<img class='ui medium left floated image'>").attr("src", elem.images[2].url);
                 let title = $("<h4>").text(elem.name).attr("style", "color:#4183c4");
                 let genre = $("<p>").text("Genre: " + elem.classifications[0].genre.name);
                 let date = $("<p>").text(elem.dates.start.localDate);
                 let venue = $("<p>").text(elem._embedded.venues[0].name);
                 let address = $("<p>").text(elem._embedded.venues[0].address.line1 + ", " + elem._embedded.venues[0].city.name);
-                let aTag = $("<a>").attr("href", elem.url);
-                let button = $("<button class='fluid ui purple button' type='submit'>").text("Get Info or Buy Tickets!");
-                aTag.append(button);
-                outerDiv.append(image, title, genre, date, venue, address, aTag);
+                let button = $("<button class='fluid ui purple button' type='submit'>").text("More Info");
+                outerDiv.append(image, title, genre, date, venue, address, button);
                 currentRow.append(outerDiv);
 
             });
@@ -72,15 +68,17 @@ function getUserData(cityName) {
             eventsList.forEach(function (elem) {
                 // console.log(elem);
                 let br = $("<br>");
-                
-                let newColumn = $("<div>").attr("class", "column");
-                let aTag = $("<a>").attr("href", "https://iskona.github.io/FestTrack/Details.html?id=" + elem.id);
+
+                let newColumn = $("<div>").attr("class", "column target-event").attr("id", elem.id);
+                // let aTag = $("<a>").attr("href", "https://iskona.github.io/FestTrack/Details.html?id=" + elem.id);
                 let newImg = $("<img>").attr("class", "ui large image").attr("src", elem.images[2].url);
-                let nameAtag = $("<a>").text(elem.name).attr("href", "/Details.html?id="+elem.id).attr("style", "color:white");
+                let nameAtag = $("<a>").text(elem.name).attr("href", "/Details.html?id=" + elem.id).attr("style", "color:white");
                 let datePtag = $("<p>").text(elem.dates.start.localDate).attr("style", "color:white");
                 let cityPtag = $("<p>").text(elem._embedded.venues[0].city.name).attr("style", "color:white");
-                
-                newColumn.append(aTag, newImg, nameAtag, datePtag, cityPtag, br, br);
+
+                // newColumn.append(aTag, newImg, nameAtag, datePtag, cityPtag, br, br);
+                newColumn.append(newImg, nameAtag, datePtag, cityPtag, br, br);
+
                 fourColumn.append(newColumn);
             });
         },
@@ -92,7 +90,7 @@ function getUserData(cityName) {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    getUserData(cityArr[cityArr.length-1]);
+    getUserData(cityArr[cityArr.length - 1]);
     putOnPage(cityArr);
 
     $.get("https://api.ipdata.co?api-key=test", function (response) {
@@ -127,3 +125,29 @@ $(document).on("click", ".city-select", function (event) {
 
     getUserData(cityName);
 });
+
+
+$(document).on("click", ".target-event", function (event) {
+    console.log(event)
+    console.log(event.currentTarget.id)
+
+    let eventID = event.currentTarget.id
+    window.name = "test123"
+    $.ajax({
+        type: "GET",
+        url: "https://app.ticketmaster.com/discovery/v2/events/" + eventID + "?apikey=" + key,
+        async: true,
+        dataType: "json",
+        success: function (json) {
+            console.log(json);
+            window.name =
+                localStorage.setItem("Details", JSON.stringify(json))
+            window.open("./index2.html", "_self")
+        },
+        error: function (xhr, status, err) {
+            console.log(err);
+        }
+    });
+});
+
+

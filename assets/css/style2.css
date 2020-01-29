@@ -1,3 +1,7 @@
+li {
+    padding: 15px;
+}
+
 a.item {
     color: #a333c8 !important;
 }
@@ -8,13 +12,11 @@ div.menu.right div.item a.item {
 }
 
 #showcase {
-    background-image: url("../images/party.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #333;
-    height: 75vh;
 }
 
 #menu {
@@ -23,14 +25,34 @@ div.menu.right div.item a.item {
     box-shadow: 0px 15px 10px -15px #111;
 }
 
-#four-column {
-    background-color: #353c42;
-}
-
-.searched {
+.ui.segment {
     cursor: pointer;
 }
 
-.searched:hover {
-    font-weight: bold;
+h1 {
+    text-align: center;
+}
+
+.ui.card {
+    float: right;
+}
+
+#cubeContain {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#topDiv {
+    margin: 10px;
+}
+
+#extraDetails {
+    margin: 10px 20px;
+}
+
+div.ui.bottom.attached.button {
+    background-color: azure;
+    color: #a333c8;
 }
