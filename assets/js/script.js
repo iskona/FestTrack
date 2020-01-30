@@ -70,14 +70,12 @@ function getUserData(cityName) {
                 let br = $("<br>");
 
                 let newColumn = $("<div>").attr("class", "column target-event").attr("id", elem.id);
-                // let aTag = $("<a>").attr("href", "https://iskona.github.io/FestTrack/Details.html?id=" + elem.id);
                 let newImg = $("<img>").attr("class", "ui large image").attr("src", elem.images[2].url);
-                let nameAtag = $("<a>").text(elem.name).attr("href", "/Details.html?id=" + elem.id).attr("style", "color:white");
+                let namePtag = $("<p>").text(elem.name).attr("style", "color:white");
                 let datePtag = $("<p>").text(elem.dates.start.localDate).attr("style", "color:white");
                 let cityPtag = $("<p>").text(elem._embedded.venues[0].city.name).attr("style", "color:white");
 
-                // newColumn.append(aTag, newImg, nameAtag, datePtag, cityPtag, br, br);
-                newColumn.append(newImg, nameAtag, datePtag, cityPtag, br, br);
+                newColumn.append(newImg, namePtag, datePtag, cityPtag, br, br);
 
                 fourColumn.append(newColumn);
             });
