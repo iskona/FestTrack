@@ -56,3 +56,19 @@ div.ui.bottom.attached.button {
     background-color: azure;
     color: #a333c8;
 }
+#concertImage{
+   width: 250px;
+   height: 150px;
+   align-content: center;
+}
+
+.buy_ticket_btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    background-color:rgb(38, 74, 141);
+    border-radius: 5px;
+    color:white;
+    
+}
