@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
     let pageInfo = JSON.parse(localStorage.getItem("Details"))
+
     $("#concertName").text(pageInfo.name)
     $('#concertDate').text("Date of Event:  " + pageInfo.dates.start.localDate)
     $("#concertAddress").text(pageInfo._embedded.venues[0].address.line1 + ", " + pageInfo._embedded.venues[0].city.name + " " + pageInfo._embedded.venues[0].state.name)
@@ -10,6 +11,12 @@ $(document).ready(function () {
     $('#concertImage').attr("src", pageInfo.images[2].url)
     console.log(pageInfo);
 
+    $(".buy_ticket_btn").attr('url', pageInfo.url)
+    $(document).on("click", ".buy_ticket_btn", function (event) {
+        window.open(event.currentTarget.getAttribute("url"), "_self");
+
+    })
+
     if (pageInfo.info) {
         $('#extraDetails').text(pageInfo.info + pageInfo.pleaseNote)
     } else {
@@ -17,24 +24,29 @@ $(document).ready(function () {
     }
 
     let lat = pageInfo._embedded.venues[0].location.latitude;
+
     console.log(lat);
 
+
     let lon = pageInfo._embedded.venues[0].location.longitude;
-    console.log(lon);
+
 
     $.ajax({
         type: "GET",
+
+        url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&radius=5000&sort=rating&count=4",
+
         url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&radius=5000&sort=rating&count=8",
+
         async: true,
         dataType: "json",
         headers: { 'user-key': 'bad7750c8e32a21364c6344f9009cc75' },
         success: function (json) {
-            console.log(json);
+
             let zomatoHeaders = $(".header")
             let zomatoDesc = $(".description")
             let zomatoButtons = $('.ui.bottom.attached.button')
-            console.log(zomatoHeaders);
-            console.log(zomatoButtons);
+
 
             for (let i = 0; i < zomatoHeaders.length; i++) {
 
@@ -45,7 +57,7 @@ $(document).ready(function () {
             }
         },
         error: function (xhr, status, err) {
-            console.log(err);
+
         }
     });
 })
