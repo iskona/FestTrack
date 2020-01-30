@@ -1,11 +1,4 @@
-# FestTrack
-technologies
-names
-description of project
-continue working on 
-screenshots of the app
-
-## Group Project 1: Fest Track!
+# Group Project 1: Fest Track!
 
 ## Developers: [Sofia](https://github.com/iskona), [Ethan](https://github.com/esteinmetzer), [Nic](https://github.com/nicolaeghetan), [Natasha](https://github.com/nadair42)
 
