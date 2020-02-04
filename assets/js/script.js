@@ -123,8 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     getUserData(cityArr[cityArr.length - 1]);
     putOnPage(cityArr);
-    
-    $.get("http://ipinfo.io", function (response) {
+    $.get("https://ipinfo.io?token=d5944c581f948f", function (response) {
         getCurrentData(response.city);
     }, "jsonp");
 
