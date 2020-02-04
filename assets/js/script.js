@@ -20,11 +20,45 @@ function putOnPage(array) {
     };
 };
 
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition, showError);
+//     } else {
+//         console.log("Geolocation is not supported by this browser.");
+//     }
+// }
+
+// function showError(error) {
+//     switch(error.code) {
+//         case error.PERMISSION_DENIED:
+//             console.log("User denied the request for Geolocation.");
+//             break;
+//         case error.POSITION_UNAVAILABLE:
+//             console.log("Location information is unavailable.")
+//             break;
+//         case error.TIMEOUT:
+//             console.log("The request to get user location timed out.");
+//             break;
+//         case error.UNKNOWN_ERROR:
+//             console.log("An unknown error occurred.");
+//             break;
+//     }
+// }
+
+// function showPosition(position) {
+
+//     let latlon = position.coords.latitude + "," + position.coords.longitude;
+//     console.log(latlon);
+//     getCurrentData(latlon);
+// };
+
 // AJAX CALL FOR CURRENT LOCATION
 function getCurrentData(city) {
+
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + key + "&sort=date,name,asc&city=" + city + "&classificationName=music&size=8",
+        // url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + key + "&sort=date,name,asc&city=Redmond&classificationName=music&size=8",
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=" + key + "&sort=date,name,asc&city=" + city + "&classificationName=music&size=18",
         async: true,
         dataType: "json",
         success: function (json) {
@@ -43,14 +77,13 @@ function getCurrentData(city) {
                 let button = $("<button class='fluid ui purple button' type='submit'>").text("More Info");
                 outerDiv.append(image, title, genre, date, venue, address, button);
                 currentRow.append(outerDiv);
-
             });
         },
-        error: function (xhr, status, err) {
+        error: function (err) {
             console.log(err);
         }
     });
-}
+};
 
 // AJAX CALL FOR SEARCHED LOCATION
 function getUserData(cityName) {
@@ -84,14 +117,14 @@ function getUserData(cityName) {
             console.log(err);
         }
     });
-}
+};
 
 document.addEventListener('DOMContentLoaded', function () {
 
     getUserData(cityArr[cityArr.length - 1]);
     putOnPage(cityArr);
-
-    $.get("https://api.ipdata.co?api-key=test", function (response) {
+    
+    $.get("http://ipinfo.io", function (response) {
         getCurrentData(response.city);
     }, "jsonp");
 
@@ -147,5 +180,3 @@ $(document).on("click", ".target-event", function (event) {
         }
     });
 });
-
-
